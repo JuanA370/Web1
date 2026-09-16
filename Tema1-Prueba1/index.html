@@ -1,1 +1,27 @@
 <!--Html del advinador de numero-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Oráculo: Adivina el Número</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <main>
+        <h1>El Oráculo de los numeros</h1>
+        <p>He pensado un numero entre 1 y 100. </p>
+
+        <input type="number" id="numero-input" placeholder="Tu prediccion aquí..." min="1" max="100">
+        <button id="adivinar-btn">Consultar al Oráculo</button>
+        
+        <p id="mensaje-pista"></p>
+        
+        <p>Intentos: <span id="contador-intentos">0</span></p>
+        <p id="historial-intentos"></p>
+
+        <button id="reiniciar-btn" style="display: none;">Nueva profecía</button>
+    </main>
+</body>
+</html>
