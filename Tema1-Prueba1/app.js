@@ -22,13 +22,17 @@ if (prediccion < 1 || prediccion > 100 || isNaN(prediccion)) {
 }
    intentos++;
    listaNumeros.push(prediccion);
-   contadorIntentos.textContent = `Intentos fallidos: ${intentos}`;
+   contadorIntentos.textContent = ` ${listaNumeros.join(", ")}`;
 
    if (prediccion === numeroSecreto) {
        mensajePista.textContent = "Has adivinado el número.";
-       adivinarBtn.disabled = true;
+       botonAdivinar.disabled = true;
        reiniciarBtn.style.display = "inline-block";
 
+   }else if (intentos >= 7) {
+    mensajePista.textContent = `Llegaste a 7 intentos, perdiste. El secreto era ${numeroSecreto}.`;
+    botonAdivinar.disabled = true;
+    reiniciarBtn.style.display = "inline-block";
    }else if (prediccion < numeroSecreto) {
          mensajePista.textContent = "El número secreto es mayor.";
     } else {
