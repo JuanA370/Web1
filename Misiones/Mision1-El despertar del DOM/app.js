@@ -38,6 +38,9 @@ function colorAleatorio() {
 
 // Añade un color a la secuencia y la muestra
 function nuevaRonda() {
+    mensaje.textContent = "Atento a la secuencia...";
+    secuencia.push(colorAleatorio());
+    mostrarSecuencia();
 }
 
 // Reproduce la secuencia completa y después cede el turno al jugador
@@ -57,10 +60,28 @@ function mostrarSecuencia() {
 
 // Comprueba el color pulsado por el jugador (clic o teclado)
 function procesarJugada(color) {
+    iluminar(color);
+
+    if (color !== secuencia[pasoJugador]) {
+        finDePartida();
+        return;
+    }
+
+    pasoJugador++;
+
+    if (pasoJugador === secuencia.length) {
+        turnoJugador = false;
+        ronda++;
+        actualizarMarcador();
+        mensaje.textContent = `¡Bien! Ronda ${ronda} superada.`;
+        setTimeout(nuevaRonda, PAUSA_ENTRE_COLORES * 1.5);
+    }
 }
 
 // Pinta ronda y récord en el marcador
 function actualizarMarcador() {
+    spanRonda.textContent = ronda;
+    spanRecord.textContent = record;
 }
 
 // Termina la partida y actualiza el récord
@@ -82,7 +103,6 @@ function empezarPartida() {
     turnoJugador = false;
     actualizarMarcador();
 
-    mensaje.textContent = "Atento a la secuencia...";
     botonEmpezar.classList.add("oculto");
     nuevaRonda();
 }
