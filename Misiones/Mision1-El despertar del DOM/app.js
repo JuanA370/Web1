@@ -5,7 +5,9 @@ const COLORES = ["verde", "rojo", "amarillo", "azul"];
 const TECLAS = { q: "verde", w: "rojo", a: "amarillo", s: "azul" };
 const TECLA_MODO_OSCURO = "d";
 const DURACION_LUZ = 500;      // ms que un pad permanece iluminado
-const PAUSA_ENTRE_COLORES = 800; // ms entre colores de la secuencia
+const PAUSA_ENTRE_COLORES = 800; // ms entre colores de la secuencia en la primera ronda
+const PAUSA_MINIMA = 300;        // la secuencia nunca irá más rápido que esto
+const ACELERACION = 40;          // ms que se recortan por cada ronda superada
 
 // ---------- Estado del juego ----------
 const secuencia = [];
@@ -23,11 +25,16 @@ const spanRecord = document.querySelector("#record");
 
 // ---------- Funciones ----------
 
-// Enciende un pad durante DURACION_LUZ ms
-function iluminar(color) {
+// Enciende un pad durante los ms indicados
+function iluminar(color, duracion = DURACION_LUZ) {
     const pad = tablero.querySelector(`[data-color="${color}"]`);
     pad.classList.add("activo");
-    setTimeout(() => pad.classList.remove("activo"), DURACION_LUZ);
+    setTimeout(() => pad.classList.remove("activo"), duracion);
+}
+
+// Pausa entre colores según la ronda: cada ronda la secuencia va más rápido
+function calcularPausa() {
+    return Math.max(PAUSA_MINIMA, PAUSA_ENTRE_COLORES - ronda * ACELERACION);
 }
 
 // Devuelve un color al azar de COLORES
@@ -48,14 +55,17 @@ function mostrarSecuencia() {
     turnoJugador = false;
     pasoJugador = 0;
 
+    const pausa = calcularPausa();
+    const duracionLuz = pausa * 0.6; // la luz se apaga antes del siguiente color
+
     secuencia.forEach((color, indice) => {
-        setTimeout(() => iluminar(color), indice * PAUSA_ENTRE_COLORES);
+        setTimeout(() => iluminar(color, duracionLuz), indice * pausa);
     });
 
     setTimeout(() => {
         turnoJugador = true;
         mensaje.textContent = "¡Tu turno!";
-    }, secuencia.length * PAUSA_ENTRE_COLORES);
+    }, secuencia.length * pausa);
 }
 
 // Comprueba el color pulsado por el jugador (clic o teclado)
