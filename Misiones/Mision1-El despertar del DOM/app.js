@@ -32,6 +32,8 @@ function iluminar(color) {
 
 // Devuelve un color al azar de COLORES
 function colorAleatorio() {
+    const indice = Math.floor(Math.random() * COLORES.length);
+    return COLORES[indice];
 }
 
 // Añade un color a la secuencia y la muestra
@@ -40,6 +42,17 @@ function nuevaRonda() {
 
 // Reproduce la secuencia completa y después cede el turno al jugador
 function mostrarSecuencia() {
+    turnoJugador = false;
+    pasoJugador = 0;
+
+    secuencia.forEach((color, indice) => {
+        setTimeout(() => iluminar(color), indice * PAUSA_ENTRE_COLORES);
+    });
+
+    setTimeout(() => {
+        turnoJugador = true;
+        mensaje.textContent = "¡Tu turno!";
+    }, secuencia.length * PAUSA_ENTRE_COLORES);
 }
 
 // Comprueba el color pulsado por el jugador (clic o teclado)
