@@ -89,15 +89,46 @@ header p,
     transform: scale(0.97);
 }
 
-.pad-verde    { background-color: var(--verde); }
-.pad-rojo     { background-color: var(--rojo); }
-.pad-amarillo { background-color: var(--amarillo); }
-.pad-azul     { background-color: var(--azul); }
+.pad-verde,    .ficha-verde    { background-color: var(--verde); }
+.pad-rojo,     .ficha-rojo     { background-color: var(--rojo); }
+.pad-amarillo, .ficha-amarillo { background-color: var(--amarillo); }
+.pad-azul,     .ficha-azul     { background-color: var(--azul); }
 
 /* Pad iluminado (lo añade/quita el JS) */
 .pad.activo {
     filter: brightness(1.2);
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+/* Historial: secuencia correcta al perder */
+.historial {
+    margin-bottom: 1.5rem;
+}
+
+.historial h2 {
+    font-size: 1rem;
+    color: var(--texto-suave);
+    margin-bottom: 0.6rem;
+}
+
+.historial-fichas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+.ficha {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+}
+
+/* Ficha donde el jugador se equivocó */
+.ficha.fallo {
+    outline: 3px solid var(--texto);
+    outline-offset: 2px;
+    transform: scale(1.2);
 }
 
 .boton-empezar {

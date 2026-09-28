@@ -22,6 +22,8 @@ const botonEmpezar = document.querySelector("#empezar-btn");
 const mensaje = document.querySelector("#mensaje");
 const spanRonda = document.querySelector("#ronda");
 const spanRecord = document.querySelector("#record");
+const historial = document.querySelector("#historial");
+const historialFichas = document.querySelector("#historial-fichas");
 
 // ---------- Funciones ----------
 
@@ -94,11 +96,32 @@ function actualizarMarcador() {
     spanRecord.textContent = record;
 }
 
+// Crea una ficha por cada color de la secuencia y marca en la que se falló
+function mostrarHistorial() {
+    const fragmento = document.createDocumentFragment();
+
+    secuencia.forEach((color, indice) => {
+        const ficha = document.createElement("span");
+        ficha.classList.add("ficha", `ficha-${color}`);
+        ficha.title = color;
+
+        if (indice === pasoJugador) {
+            ficha.classList.add("fallo");
+        }
+
+        fragmento.appendChild(ficha);
+    });
+
+    historialFichas.replaceChildren(fragmento);
+    historial.classList.remove("oculto");
+}
+
 // Termina la partida y actualiza el récord
 function finDePartida() {
     turnoJugador = false;
     record = Math.max(record, ronda);
     actualizarMarcador();
+    mostrarHistorial();
 
     mensaje.textContent = `¡Fallaste! Llegaste a la ronda ${ronda}.`;
     botonEmpezar.textContent = "Jugar otra vez";
@@ -113,6 +136,7 @@ function empezarPartida() {
     turnoJugador = false;
     actualizarMarcador();
 
+    historial.classList.add("oculto");
     botonEmpezar.classList.add("oculto");
     nuevaRonda();
 }
