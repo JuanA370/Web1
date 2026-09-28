@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Says</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Simon Says</h1>
+            <p>Memoriza la secuencia de colores y repítela.</p>
+        </header>
+
+        <section class="marcador" aria-label="Marcador">
+            <p>Ronda: <span id="ronda">0</span></p>
+            <p>Récord: <span id="record">0</span></p>
+        </section>
+
+        <p id="mensaje" aria-live="polite">Pulsa «Empezar» para jugar.</p>
+
+        <div id="tablero" class="tablero">
+            <button class="pad pad-verde" data-color="verde" aria-label="Verde"></button>
+            <button class="pad pad-rojo" data-color="rojo" aria-label="Rojo"></button>
+            <button class="pad pad-amarillo" data-color="amarillo" aria-label="Amarillo"></button>
+            <button class="pad pad-azul" data-color="azul" aria-label="Azul"></button>
+        </div>
+
+        <button id="empezar-btn" class="boton-empezar">Empezar</button>
+    </main>
+</body>
+</html>
