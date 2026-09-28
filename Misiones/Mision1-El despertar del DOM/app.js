@@ -25,6 +25,9 @@ const spanRecord = document.querySelector("#record");
 
 // Enciende un pad durante DURACION_LUZ ms
 function iluminar(color) {
+    const pad = tablero.querySelector(`[data-color="${color}"]`);
+    pad.classList.add("activo");
+    setTimeout(() => pad.classList.remove("activo"), DURACION_LUZ);
 }
 
 // Devuelve un color al azar de COLORES
@@ -49,10 +52,26 @@ function actualizarMarcador() {
 
 // Termina la partida y actualiza el récord
 function finDePartida() {
+    turnoJugador = false;
+    record = Math.max(record, ronda);
+    actualizarMarcador();
+
+    mensaje.textContent = `¡Fallaste! Llegaste a la ronda ${ronda}.`;
+    botonEmpezar.textContent = "Jugar otra vez";
+    botonEmpezar.classList.remove("oculto");
 }
 
 // Pone el estado a cero y empieza una partida nueva
 function empezarPartida() {
+    secuencia.length = 0;
+    pasoJugador = 0;
+    ronda = 0;
+    turnoJugador = false;
+    actualizarMarcador();
+
+    mensaje.textContent = "Atento a la secuencia...";
+    botonEmpezar.classList.add("oculto");
+    nuevaRonda();
 }
 
 // ---------- Eventos ----------
