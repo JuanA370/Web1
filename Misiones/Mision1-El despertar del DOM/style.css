@@ -1,0 +1,118 @@
+/* css del Simon Says */
+
+:root {
+    --fondo: #f2f2f2;
+    --tarjeta: #ffffff;
+    --texto: #222222;
+    --texto-suave: #666666;
+    --borde: #dddddd;
+
+    --verde: #2e9e4f;
+    --rojo: #d23c3c;
+    --amarillo: #e0b400;
+    --azul: #2f6fd1;
+}
+
+/* Modo oscuro: se activa con la tecla secreta */
+body.oscuro {
+    --fondo: #121212;
+    --tarjeta: #1e1e1e;
+    --texto: #e0e0e0;
+    --texto-suave: #a0a0a0;
+    --borde: #333333;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background-color: var(--fondo);
+    color: var(--texto);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+main {
+    background-color: var(--tarjeta);
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+header p,
+#mensaje {
+    color: var(--texto-suave);
+    margin-bottom: 1rem;
+}
+
+.marcador {
+    display: flex;
+    justify-content: space-around;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* Tablero 2x2 */
+.tablero {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.pad {
+    aspect-ratio: 1;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    filter: brightness(0.6);
+    transition: filter 0.15s ease, transform 0.1s ease;
+}
+
+.pad:active {
+    transform: scale(0.97);
+}
+
+.pad-verde    { background-color: var(--verde); }
+.pad-rojo     { background-color: var(--rojo); }
+.pad-amarillo { background-color: var(--amarillo); }
+.pad-azul     { background-color: var(--azul); }
+
+/* Pad iluminado (lo añade/quita el JS) */
+.pad.activo {
+    filter: brightness(1.2);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+.boton-empezar {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--texto);
+    color: var(--tarjeta);
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Utilidad para esconder elementos desde el JS */
+.oculto {
+    display: none;
+}
