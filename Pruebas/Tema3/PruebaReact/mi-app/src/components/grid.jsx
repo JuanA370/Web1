@@ -1,4 +1,6 @@
-export default function grid ({nombre, rol, especie = "Humano"}) {
+import "./grid.css";
+
+export default function Grid ({nombre, rol, especie = "Humano"}) {
     return (
     <div className="card">
         <h2>{nombre}</h2>

@@ -1,5 +1,7 @@
-export default function titulo () {
+import "./Titulo.css";
+
+export default function Titulo () {
     return (
-    <p class="titulo">La tripulación</p>
+    <p className="titulo">La tripulación</p>
     );
 }
