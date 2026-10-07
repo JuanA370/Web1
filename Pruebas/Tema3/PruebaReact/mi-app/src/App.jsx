@@ -4,8 +4,10 @@ import Saludo from "./components/saludo";
 export default function App() {
   return (
     <>
-      <Saludo nombre="Juan" />
-      <Boton />
+      <Titulo/>
+      <grid nombre="Juan" rol="Capitán" especie="Humano"/>
+      <grid nombre="María" rol="Doctora" especie="Humano"/>
+      <grid nombre="R2-D2" rol="Droid" especie="Droide"/>
     </>
   );
 }
