@@ -2,4 +2,71 @@ body {
   font-family: system-ui, sans-serif;
   margin: 0;
   padding: 16px;
+  background: #1b1f24;
+  color: #eee;
+}
+
+h1 {
+  color: #97ce4c;
+}
+
+#filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+input,
+select,
+button {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #555;
+  font: inherit;
+}
+
+button {
+  background: #97ce4c;
+  border: none;
+  cursor: pointer;
+}
+
+.error {
+  color: #ff6b6b;
+}
+
+#lista {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.tarjeta {
+  background: #2a3038;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tarjeta img {
+  width: 100%;
+  display: block;
+}
+
+.tarjeta h2 {
+  font-size: 1rem;
+  margin: 8px;
+}
+
+.tarjeta p {
+  margin: 8px;
+}
+
+[data-estado='Alive'] {
+  color: #97ce4c;
+}
+
+[data-estado='Dead'] {
+  color: #ff6b6b;
 }
