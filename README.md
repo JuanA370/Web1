@@ -8,10 +8,14 @@ Este archivo explica cómo está organizado para que la corrección localice cad
 ```
 Web1/
 ├── Misiones/                              ← ENTREGAS EVALUABLES (misiones)
-│   └── Mision1-El despertar del DOM/      ← M1 · El Despertar del DOM
+│   ├── Mision1-El despertar del DOM/      ← M1 · El Despertar del DOM
+│   │   ├── index.html
+│   │   ├── styles.css
+│   │   └── app.js
+│   └── Mision2-Async Odyssey/             ← M2 · Async Odyssey (proyecto Vite)
 │       ├── index.html
-│       ├── styles.css
-│       └── app.js
+│       ├── package.json
+│       └── src/ (main.js, api.js, logic.js, render.js, styles.css)
 └── Pruebas/                               ← PRÁCTICAS DE CLASE
     └── Tema1/
         └── Prueba1/                       ← Ejercicio del oráculo (adivina el número)
@@ -31,6 +35,7 @@ Contiene las **misiones** que se entregan y se puntúan.
 | Carpeta | Misión | Contenido |
 |---|---|---|
 | `Mision1-El despertar del DOM` | M1 · El Despertar del DOM | Simon Says en HTML, CSS y JavaScript puro, sin frameworks |
+| `Mision2-Async Odyssey` | M2 · Async Odyssey | Buscador de personajes de Rick and Morty con Vite, fetch y async/await |
 
 ## `Pruebas/` — prácticas de clase
 
