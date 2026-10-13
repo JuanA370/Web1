@@ -1,0 +1,15 @@
+{
+  "name": "mision2-async-odyssey",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Buscador de personajes de Rick and Morty con fetch y async/await",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^8.3.4"
+  }
+}
