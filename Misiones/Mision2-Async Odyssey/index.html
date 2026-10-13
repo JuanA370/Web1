@@ -7,7 +7,22 @@
   </head>
   <body>
     <h1>Buscador de Rick and Morty</h1>
-    <main id="app"></main>
+
+    <form id="filtros">
+      <input name="nombre" type="search" placeholder="Nombre (ej. Rick)" />
+      <select name="estado">
+        <option value="">Todos</option>
+        <option value="alive">Vivos</option>
+        <option value="dead">Muertos</option>
+        <option value="unknown">Desconocido</option>
+      </select>
+      <button type="submit">Buscar</button>
+    </form>
+
+    <p id="estado"></p>
+    <p id="resumen"></p>
+    <ul id="lista"></ul>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
