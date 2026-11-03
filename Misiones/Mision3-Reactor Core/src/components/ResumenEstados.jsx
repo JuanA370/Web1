@@ -6,7 +6,7 @@ export default function ResumenEstados({ personajes }) {
   const cuenta = contarPorEstado(personajes);
 
   return (
-    <p className="resumen">
+    <p className="resumen">{personajes.length} en esta página —{' '}
       {Object.entries(cuenta).map(([estado, total]) => (
         <span key={estado}>
           {textoEstado(estado)}: {total}

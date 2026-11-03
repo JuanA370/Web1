@@ -16,7 +16,7 @@ export default function TarjetaPersonaje({ personaje, esFavorito, alAlternarFavo
       {sinImagen ? (
         <div className="sin-imagen">Sin imagen</div>
       ) : (
-        <img src={personaje.imagen} alt={personaje.nombre} onError={() => setImagenRota(true)} />
+        <img src={personaje.imagen} alt={personaje.nombre} loading="lazy" onError={() => setImagenRota(true)} />
       )}
       <h2>{personaje.nombre}</h2>
       <p data-estado={personaje.estado}>
