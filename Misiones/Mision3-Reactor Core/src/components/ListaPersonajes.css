@@ -1,0 +1,8 @@
+/* Cuadrícula de tarjetas que se adapta al ancho de la pantalla */
+.lista {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}

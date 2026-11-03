@@ -1,0 +1,25 @@
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.filtros input {
+  flex: 1 1 220px;
+  max-width: 360px;
+}
+
+.filtros input:focus,
+.filtros select:focus {
+  outline: none;
+  border-color: var(--verde-portal);
+  box-shadow: 0 0 0 3px rgba(151, 206, 76, 0.3);
+}
+
+/* Mientras carga, el botón Buscar se ve apagado y no se puede pulsar */
+.filtros button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

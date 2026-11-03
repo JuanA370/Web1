@@ -1,0 +1,17 @@
+.mensaje {
+  text-align: center;
+  color: var(--texto-suave);
+}
+
+.mensaje.error {
+  color: var(--rojo);
+  background: rgba(255, 107, 107, 0.1);
+  border: 1px solid rgba(255, 107, 107, 0.4);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.mensaje.error button {
+  margin-left: 8px;
+  background: var(--rojo);
+}

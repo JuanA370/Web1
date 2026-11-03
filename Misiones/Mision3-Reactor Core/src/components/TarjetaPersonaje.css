@@ -1,0 +1,85 @@
+.tarjeta {
+  position: relative;
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.tarjeta:hover {
+  transform: translateY(-4px);
+  border-color: var(--verde-portal);
+  box-shadow: 0 8px 24px rgba(151, 206, 76, 0.25);
+}
+
+.tarjeta img,
+.sin-imagen {
+  width: 100%;
+  aspect-ratio: 1;
+  display: block;
+  background: var(--borde);
+}
+
+.tarjeta img {
+  object-fit: cover;
+}
+
+/* Hueco que sustituye a la imagen cuando falta o no carga */
+.sin-imagen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+}
+
+.tarjeta h2 {
+  font-size: 1rem;
+  margin: 12px 12px 4px;
+}
+
+.tarjeta p {
+  margin: 0 12px 12px;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+/* Estrella de favorito encima de la imagen */
+.estrella {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 10px;
+  font-size: 1.1rem;
+  color: var(--texto);
+  background: rgba(13, 17, 23, 0.75);
+}
+
+.estrella.favorito {
+  color: var(--ambar);
+}
+
+/* Punto de color según el estado; los valores coinciden con las claves de ESTADOS */
+.tarjeta p::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background: var(--texto-suave);
+}
+
+[data-estado='alive']::before {
+  background: var(--verde-portal);
+  box-shadow: 0 0 6px var(--verde-portal);
+}
+
+[data-estado='dead']::before {
+  background: var(--rojo);
+}
+
+[data-estado='unknown']::before {
+  background: var(--gris-azul);
+}

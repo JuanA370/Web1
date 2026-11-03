@@ -1,0 +1,14 @@
+.boton-favoritos {
+  display: block;
+  margin: 0 auto 16px;
+  background: var(--tarjeta);
+  color: var(--texto);
+  border: 1px solid var(--borde);
+}
+
+/* Con la vista de favoritos activa el botón se pinta en ámbar */
+.boton-favoritos[aria-pressed='true'] {
+  background: var(--ambar);
+  color: var(--fondo);
+  border-color: var(--ambar);
+}

@@ -1,0 +1,9 @@
+.resumen {
+  text-align: center;
+  color: var(--texto-suave);
+}
+
+/* Separador entre los totales: «Vivo: 3 · Muerto: 1» */
+.resumen span + span::before {
+  content: ' · ';
+}
