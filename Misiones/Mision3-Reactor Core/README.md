@@ -14,13 +14,7 @@ no hay resultados) y quita la conexión para ver el error con
 
 ## Uso de IA
 Usé Claude Code como orquestador: yo le pedía la tarea y él la
-repartía entre subagentes, cada uno con su encargo por escrito. Mi
-prompt real (fragmentos literales): "mira como se estructura en el
-readme general e hijo cada entrega", "hazla con subagentes", "en el uso
-de IA la harás tú, tu diras que prompt has usado en cada agente" y
-"harás con otro subagente un test para verificar que está todo bien y
-como mandaste". Antes le pedí revisar las correcciones de M1 y M2 en la
-Arena y preparar las preguntas probables de la defensa.
+repartía entre subagentes, cada uno con su encargo por escrito.
 
 Primera frase literal del encargo de cada agente:
 1. Analista: "Analiza cómo está organizado mi repositorio de la
@@ -40,13 +34,13 @@ Primera frase literal del encargo de cada agente:
    configs, este README con la Autopsia y la entrada en el general).
 7. Test: "Verifica la Misión 3 que han construido otros agentes."
 
-Prácticamente todo el código y el texto de este README los escribieron
-los agentes; esta sección la escribió Claude con los prompts reales.
-La verificación también la hicieron ellos: npm run lint sin avisos,
+Prácticamente todo el código y lo escribieron los agentes; esta sección la escribió Claude con los prompts reales.
+La verificación técnica también la hicieron ellos: npm run lint sin avisos,
 npm run build, pruebas en el navegador (búsqueda, nombre inexistente,
 favoritos tras recargar, error con «Reintentar», timeout) y una prueba
 aparte que confirma que el linter marca un setState dentro del
 useEffect, lo que cuento en la primera decisión de la Autopsia.
+La verificación manual la hice yo intentando romper la web de diversas formas
 
 ## Autopsia
 1. La fase (cargando, listo o error) no es un estado aparte: en
