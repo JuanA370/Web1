@@ -1,0 +1,54 @@
+:root {
+  --verde-portal: #97ce4c;
+  --verde-brillo: #b7f36b;
+  --azul-rick: #4fc3dc;
+  --gris-azul: #7d8fa8;
+  --rojo: #ff6b6b;
+  --ambar: #ffc94d;
+  --fondo: #0d1117;
+  --tarjeta: #161b22;
+  --borde: #2d333b;
+  --texto: #e6edf3;
+  --texto-suave: #8b949e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  padding: 24px 16px;
+  min-height: 100vh;
+  color: var(--texto);
+  background:
+    radial-gradient(circle at 50% -10%, rgba(151, 206, 76, 0.25), transparent 45%),
+    var(--fondo);
+}
+
+/* Controles con la misma forma en todos los componentes */
+input,
+select,
+button {
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--borde);
+  font: inherit;
+  color: var(--texto);
+  background: var(--tarjeta);
+}
+
+button {
+  background: var(--verde-portal);
+  color: var(--fondo);
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 0 16px rgba(151, 206, 76, 0.6);
+}
