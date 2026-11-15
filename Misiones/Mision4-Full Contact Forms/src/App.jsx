@@ -1,6 +1,7 @@
+import ListaDominios from './components/ListaDominios.jsx';
 import './App.css';
 
-// Componente raíz: de momento solo coloca las dos zonas de la página (registro y listado)
+// Componente raíz: coloca las dos zonas de la página (registro y listado)
 export default function App() {
   return (
     <main>
@@ -19,7 +20,7 @@ export default function App() {
 
         <section className="zona" aria-labelledby="titulo-lista">
           <h2 id="titulo-lista">Dominios bloqueados</h2>
-          <p className="pendiente">Aquí irá el listado que llega del API.</p>
+          <ListaDominios />
         </section>
       </div>
     </main>
