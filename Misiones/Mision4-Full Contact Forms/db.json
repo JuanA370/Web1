@@ -1,0 +1,58 @@
+{
+  "dominios": [
+    {
+      "id": 1,
+      "dominio": "doubleclick.net",
+      "categoria": "publicidad",
+      "alcance": "subdominios",
+      "motivo": "Sirve anuncios en casi todas las webs de noticias",
+      "fechaDeteccion": "2026-10-02",
+      "fechaAlta": "2026-10-02T18:30:00.000Z"
+    },
+    {
+      "id": 2,
+      "dominio": "googlesyndication.com",
+      "categoria": "publicidad",
+      "alcance": "subdominios",
+      "motivo": "Banners y anuncios de texto incrustados en blogs",
+      "fechaDeteccion": "2026-10-05",
+      "fechaAlta": "2026-10-05T10:12:00.000Z"
+    },
+    {
+      "id": 3,
+      "dominio": "google-analytics.com",
+      "categoria": "rastreo",
+      "alcance": "solo",
+      "motivo": "Mide las visitas y sigue la navegación entre páginas",
+      "fechaDeteccion": "2026-10-11",
+      "fechaAlta": "2026-10-11T09:45:00.000Z"
+    },
+    {
+      "id": 4,
+      "dominio": "hotjar.com",
+      "categoria": "rastreo",
+      "alcance": "subdominios",
+      "motivo": "Graba los movimientos del ratón y los clics del usuario",
+      "fechaDeteccion": "2026-10-20",
+      "fechaAlta": "2026-10-20T16:05:00.000Z"
+    },
+    {
+      "id": 5,
+      "dominio": "popads.net",
+      "categoria": "ventanas emergentes",
+      "alcance": "subdominios",
+      "motivo": "Abre pestañas de anuncios al hacer clic en cualquier sitio",
+      "fechaDeteccion": "2026-11-01",
+      "fechaAlta": "2026-11-01T20:20:00.000Z"
+    },
+    {
+      "id": 6,
+      "dominio": "premio-gratis-ya.example",
+      "categoria": "malware",
+      "alcance": "solo",
+      "motivo": "Página falsa de premios que pide descargar un instalador",
+      "fechaDeteccion": "2026-11-08",
+      "fechaAlta": "2026-11-08T12:00:00.000Z"
+    }
+  ]
+}

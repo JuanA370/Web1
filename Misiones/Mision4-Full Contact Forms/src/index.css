@@ -1,0 +1,67 @@
+:root {
+  --rojo-bloqueo: #ef4444;
+  --rojo-suave: #fca5a5;
+  --ambar: #fbbf24;
+  --verde-ok: #4ade80;
+  --fondo: #0f1115;
+  --tarjeta: #171a21;
+  --borde: #2b303b;
+  --texto: #e7e9ee;
+  --texto-suave: #9aa1ad;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  padding: 24px 16px;
+  min-height: 100vh;
+  color: var(--texto);
+  background:
+    radial-gradient(circle at 50% -10%, rgba(239, 68, 68, 0.18), transparent 45%),
+    var(--fondo);
+}
+
+/* Controles con la misma forma en todos los componentes */
+input,
+select,
+textarea,
+button {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--borde);
+  font: inherit;
+  color: var(--texto);
+  background: var(--tarjeta);
+}
+
+button {
+  cursor: pointer;
+  border-color: var(--rojo-bloqueo);
+  background: var(--rojo-bloqueo);
+  color: #fff;
+  font-weight: 600;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+/* Foco visible para quien navega con el teclado */
+:focus-visible {
+  outline: 2px solid var(--ambar);
+  outline-offset: 2px;
+}
+
+/* Mensajes que reutilizan varios componentes */
+.error {
+  color: var(--rojo-suave);
+}
+
+.ok {
+  color: var(--verde-ok);
+}

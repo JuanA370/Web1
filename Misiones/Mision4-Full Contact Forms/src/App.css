@@ -1,0 +1,43 @@
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.cabecera {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.cabecera h1 {
+  margin: 0 0 6px;
+  color: var(--rojo-bloqueo);
+}
+
+.subtitulo {
+  margin: 0;
+  color: var(--texto-suave);
+}
+
+/* Dos columnas en pantallas anchas y una sola en el móvil */
+.zonas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.zona {
+  padding: 20px;
+  border: 1px solid var(--borde);
+  border-radius: 14px;
+  background: var(--tarjeta);
+}
+
+.zona h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+.pendiente {
+  color: var(--texto-suave);
+  font-style: italic;
+}
