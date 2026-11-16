@@ -15,3 +15,28 @@ export async function obtenerDominios() {
   if (!respuesta.ok) throw new Error(`Error HTTP ${respuesta.status} al pedir los dominios`);
   return respuesta.json();
 }
+
+// Envía al API un dominio nuevo (POST) y devuelve el registro guardado, ya con su id
+export async function crearDominio(datos) {
+  // Solo se guardan los campos del dominio: la casilla «comprobado» es una confirmación del formulario
+  const nuevo = {
+    dominio: datos.dominio,
+    categoria: datos.categoria,
+    alcance: datos.alcance,
+    motivo: datos.motivo,
+    fechaDeteccion: datos.fechaDeteccion,
+    fechaAlta: new Date().toISOString(),
+  };
+  let respuesta;
+  try {
+    respuesta = await fetch(`${API_URL}/dominios`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(nuevo),
+    });
+  } catch {
+    throw new Error(TEXTO_SIN_CONEXION);
+  }
+  if (!respuesta.ok) throw new Error(`Error HTTP ${respuesta.status}: no se pudo guardar el dominio`);
+  return respuesta.json();
+}
