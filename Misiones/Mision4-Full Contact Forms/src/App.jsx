@@ -1,3 +1,4 @@
+import FormularioDominio from './components/FormularioDominio.jsx';
 import ListaDominios from './components/ListaDominios.jsx';
 import './App.css';
 
@@ -15,7 +16,7 @@ export default function App() {
       <div className="zonas">
         <section className="zona" aria-labelledby="titulo-registro">
           <h2 id="titulo-registro">Añadir un dominio</h2>
-          <p className="pendiente">Aquí irá el formulario de registro.</p>
+          <FormularioDominio />
         </section>
 
         <section className="zona" aria-labelledby="titulo-lista">

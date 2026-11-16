@@ -1,0 +1,56 @@
+.formulario {
+  display: grid;
+  gap: 14px;
+}
+
+.campo {
+  display: grid;
+  gap: 6px;
+}
+
+.campo label,
+.campo legend {
+  font-weight: 600;
+}
+
+fieldset.campo {
+  margin: 0;
+  padding: 10px 14px;
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+}
+
+/* Radios y casilla: la etiqueta envuelve al input para que se pueda pulsar el texto */
+.opcion {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.opcion input {
+  width: auto;
+  accent-color: var(--rojo-bloqueo);
+}
+
+.formulario textarea {
+  resize: vertical;
+}
+
+.vista-previa {
+  padding: 10px 14px;
+  border: 1px dashed var(--ambar);
+  border-radius: 10px;
+}
+
+.vista-previa p {
+  margin: 0 0 6px;
+  color: var(--ambar);
+}
+
+.vista-previa pre {
+  margin: 0;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+}
