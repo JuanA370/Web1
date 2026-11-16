@@ -16,17 +16,34 @@ export async function obtenerDominios() {
   return respuesta.json();
 }
 
+// Pregunta al API si el dominio ya está en la lista (json-server filtra con ?dominio=)
+async function existeDominio(dominio) {
+  let respuesta;
+  try {
+    respuesta = await fetch(`${API_URL}/dominios?dominio=${encodeURIComponent(dominio)}`);
+  } catch {
+    throw new Error(TEXTO_SIN_CONEXION);
+  }
+  if (!respuesta.ok) throw new Error(`Error HTTP ${respuesta.status} al comprobar el dominio`);
+  const coincidencias = await respuesta.json();
+  return coincidencias.length > 0;
+}
+
 // Envía al API un dominio nuevo (POST) y devuelve el registro guardado, ya con su id
 export async function crearDominio(datos) {
-  // Solo se guardan los campos del dominio: la casilla «comprobado» es una confirmación del formulario
+  // Solo se guardan los campos del dominio: la casilla «comprobado» es una confirmación del formulario.
+  // El dominio se guarda en minúsculas para que ADS.ejemplo.com y ads.ejemplo.com cuenten como el mismo
   const nuevo = {
-    dominio: datos.dominio,
+    dominio: datos.dominio.toLowerCase(),
     categoria: datos.categoria,
     alcance: datos.alcance,
     motivo: datos.motivo,
     fechaDeteccion: datos.fechaDeteccion,
     fechaAlta: new Date().toISOString(),
   };
+  if (await existeDominio(nuevo.dominio)) {
+    throw new Error(`${nuevo.dominio} ya está en la lista de bloqueo`);
+  }
   let respuesta;
   try {
     respuesta = await fetch(`${API_URL}/dominios`, {
