@@ -38,6 +38,17 @@ fieldset.campo {
   resize: vertical;
 }
 
+/* Campo con error: borde rojo (aria-invalid lo pone el componente cuando Zod rechaza el valor) */
+.formulario [aria-invalid='true'] {
+  border-color: var(--rojo-bloqueo);
+}
+
+.error-campo {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--rojo-suave);
+}
+
 /* Mensaje de éxito o de error del envío */
 .formulario .ok,
 .formulario .error {
