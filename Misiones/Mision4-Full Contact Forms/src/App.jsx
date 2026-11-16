@@ -1,9 +1,14 @@
+import { useState } from 'react';
 import FormularioDominio from './components/FormularioDominio.jsx';
+import FiltroCategoria from './components/FiltroCategoria.jsx';
 import ListaDominios from './components/ListaDominios.jsx';
 import './App.css';
 
-// Componente raíz: coloca las dos zonas de la página (registro y listado)
+// Componente raíz: coloca las dos zonas de la página y guarda la categoría elegida en el filtro
 export default function App() {
+  // '' significa «todas las categorías»
+  const [categoria, setCategoria] = useState('');
+
   return (
     <main>
       <header className="cabecera">
@@ -21,7 +26,8 @@ export default function App() {
 
         <section className="zona" aria-labelledby="titulo-lista">
           <h2 id="titulo-lista">Dominios bloqueados</h2>
-          <ListaDominios />
+          <FiltroCategoria categoria={categoria} alCambiar={setCategoria} />
+          <ListaDominios categoria={categoria} />
         </section>
       </div>
     </main>

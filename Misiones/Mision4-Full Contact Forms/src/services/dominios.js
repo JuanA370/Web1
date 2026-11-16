@@ -3,11 +3,13 @@
 const API_URL = import.meta.env.VITE_API_URL;
 const TEXTO_SIN_CONEXION = 'No se pudo conectar con el API. ¿Está arrancado json-server (npm run api)?';
 
-// Pide al API la lista de dominios bloqueados y devuelve el array que llega en el JSON
-export async function obtenerDominios() {
+// Pide al API la lista de dominios bloqueados (todos, o solo los de una categoría si se indica)
+export async function obtenerDominios(categoria) {
+  // json-server filtra por cualquier campo con ?campo=valor
+  const filtro = categoria ? `?categoria=${encodeURIComponent(categoria)}` : '';
   let respuesta;
   try {
-    respuesta = await fetch(`${API_URL}/dominios`);
+    respuesta = await fetch(`${API_URL}/dominios${filtro}`);
   } catch {
     // fetch solo falla aquí si no hay conexión: lo traducimos a un mensaje que entienda el usuario
     throw new Error(TEXTO_SIN_CONEXION);

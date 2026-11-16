@@ -1,0 +1,14 @@
+.filtro {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.filtro label {
+  font-weight: 600;
+}
+
+.filtro select {
+  flex: 1;
+}

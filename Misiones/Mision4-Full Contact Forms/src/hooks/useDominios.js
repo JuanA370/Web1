@@ -2,14 +2,14 @@ import { useQuery } from '@tanstack/react-query';
 import { obtenerDominios } from '../services/dominios.js';
 
 // ---------- Constantes ----------
-// Clave con la que TanStack Query guarda la lista en su caché (se reutiliza al invalidar)
+// Comienzo de la clave de todas las consultas de dominios (se reutiliza al invalidar)
 export const CLAVE_DOMINIOS = ['dominios'];
 
-// Consulta la lista de dominios: TanStack Query se encarga de la caché y de los estados de carga y error
-export default function useDominios() {
+// Consulta la lista de dominios de una categoría ('' = todas): cada categoría se guarda en la caché con su propia clave
+export default function useDominios(categoria) {
   return useQuery({
-    queryKey: CLAVE_DOMINIOS,
-    queryFn: obtenerDominios,
+    queryKey: [...CLAVE_DOMINIOS, categoria],
+    queryFn: () => obtenerDominios(categoria),
     retry: 1,
   });
 }
