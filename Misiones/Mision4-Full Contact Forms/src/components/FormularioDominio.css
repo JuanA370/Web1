@@ -38,19 +38,8 @@ fieldset.campo {
   resize: vertical;
 }
 
-.vista-previa {
-  padding: 10px 14px;
-  border: 1px dashed var(--ambar);
-  border-radius: 10px;
-}
-
-.vista-previa p {
-  margin: 0 0 6px;
-  color: var(--ambar);
-}
-
-.vista-previa pre {
+/* Mensaje de éxito o de error del envío */
+.formulario .ok,
+.formulario .error {
   margin: 0;
-  font-size: 0.85rem;
-  white-space: pre-wrap;
 }

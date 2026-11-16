@@ -1,6 +1,6 @@
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { CATEGORIAS, ALCANCES } from '../constantes.js';
+import useRegistrarDominio from '../hooks/useRegistrarDominio.js';
 import './FormularioDominio.css';
 
 // ---------- Constantes ----------
@@ -14,15 +14,14 @@ const VALORES_INICIALES = {
   comprobado: false,
 };
 
-// Formulario para añadir un dominio a la lista de bloqueo (de momento solo recoge los datos)
+// Formulario para añadir un dominio a la lista de bloqueo: recoge los datos y los envía al API
 export default function FormularioDominio() {
-  const { register, handleSubmit } = useForm({ defaultValues: VALORES_INICIALES });
-  // Solo para este paso: guarda el último envío para enseñar qué objeto llegará al API
-  const [datosRecogidos, setDatosRecogidos] = useState(null);
+  const { register, handleSubmit, reset } = useForm({ defaultValues: VALORES_INICIALES });
+  const mutacion = useRegistrarDominio();
 
-  // handleSubmit la llama con todos los campos ya reunidos en un objeto
+  // handleSubmit la llama con todos los campos ya reunidos en un objeto; si se guarda, vacía el formulario
   function onSubmit(datos) {
-    setDatosRecogidos(datos);
+    mutacion.mutate(datos, { onSuccess: () => reset() });
   }
 
   return (
@@ -78,13 +77,15 @@ export default function FormularioDominio() {
         He comprobado que no es un sitio legítimo
       </label>
 
-      <button type="submit">Añadir a la lista</button>
+      <button type="submit" disabled={mutacion.isPending}>
+        {mutacion.isPending ? 'Añadiendo…' : 'Añadir a la lista'}
+      </button>
 
-      {datosRecogidos && (
-        <div className="vista-previa">
-          <p>Datos recogidos (en el paso siguiente se enviarán al API):</p>
-          <pre>{JSON.stringify(datosRecogidos, null, 2)}</pre>
-        </div>
+      {mutacion.isSuccess && (
+        <p role="status" className="ok">Dominio añadido a la lista de bloqueo.</p>
+      )}
+      {mutacion.isError && (
+        <p role="alert" className="error">{mutacion.error.message}</p>
       )}
     </form>
   );
