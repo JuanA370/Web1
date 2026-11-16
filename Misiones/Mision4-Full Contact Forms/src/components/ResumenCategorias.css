@@ -1,0 +1,24 @@
+.resumen {
+  list-style: none;
+  margin: 0 0 14px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.resumen li {
+  padding: 4px 12px;
+  border: 1px solid var(--borde);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+.resumen strong {
+  color: var(--texto);
+}
+
+.resumen-total {
+  border-color: var(--rojo-bloqueo);
+}

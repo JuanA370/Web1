@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import FormularioDominio from './components/FormularioDominio.jsx';
+import ResumenCategorias from './components/ResumenCategorias.jsx';
 import FiltroCategoria from './components/FiltroCategoria.jsx';
 import ListaDominios from './components/ListaDominios.jsx';
 import './App.css';
@@ -26,6 +27,7 @@ export default function App() {
 
         <section className="zona" aria-labelledby="titulo-lista">
           <h2 id="titulo-lista">Dominios bloqueados</h2>
+          <ResumenCategorias />
           <FiltroCategoria categoria={categoria} alCambiar={setCategoria} />
           <ListaDominios categoria={categoria} />
         </section>
