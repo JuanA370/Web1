@@ -43,3 +43,18 @@
 .dominio-detalle {
   color: var(--texto-suave);
 }
+
+.dominio-pie {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Botón secundario: borde rojo y fondo transparente para no competir con el de «Añadir» */
+.boton-quitar {
+  padding: 4px 12px;
+  font-size: 0.85rem;
+  background: transparent;
+  color: var(--rojo-suave);
+}

@@ -59,3 +59,14 @@ export async function crearDominio(datos) {
   if (!respuesta.ok) throw new Error(`Error HTTP ${respuesta.status}: no se pudo guardar el dominio`);
   return respuesta.json();
 }
+
+// Quita un dominio de la lista (DELETE) a partir de su id
+export async function quitarDominio(id) {
+  let respuesta;
+  try {
+    respuesta = await fetch(`${API_URL}/dominios/${id}`, { method: 'DELETE' });
+  } catch {
+    throw new Error(TEXTO_SIN_CONEXION);
+  }
+  if (!respuesta.ok) throw new Error(`Error HTTP ${respuesta.status}: no se pudo quitar el dominio`);
+}
