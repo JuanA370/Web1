@@ -49,10 +49,18 @@
       "id": 6,
       "dominio": "premio-gratis-ya.example",
       "categoria": "malware",
-      "alcance": "solo",
+      "alcance": "subdominios",
       "motivo": "Página falsa de premios que pide descargar un instalador",
       "fechaDeteccion": "2026-11-08",
       "fechaAlta": "2026-11-08T12:00:00.000Z"
+    },
+    {
+      "id": 7,
+      "dominio": 12345,
+      "alcance": "solo",
+      "motivo": "Registro roto a propósito (BONUS): dominio numérico y sin categoría",
+      "fechaDeteccion": "2026-11-10",
+      "fechaAlta": "2026-11-10T09:00:00.000Z"
     }
   ]
 }
