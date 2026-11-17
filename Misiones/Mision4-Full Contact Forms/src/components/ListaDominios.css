@@ -44,6 +44,15 @@
   color: var(--texto-suave);
 }
 
+/* Aviso del bonus: registros del API que no pasaron el esquema de la respuesta */
+.aviso-corruptos {
+  margin: 0 0 12px;
+  padding: 8px 12px;
+  border: 1px dashed var(--ambar);
+  border-radius: 10px;
+  color: var(--ambar);
+}
+
 .dominio-pie {
   display: flex;
   justify-content: space-between;

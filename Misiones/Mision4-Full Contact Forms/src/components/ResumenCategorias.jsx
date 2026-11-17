@@ -9,10 +9,12 @@ function contar(dominios, categoria) {
 
 // Contadores de la lista completa: total y uno por categoría (siempre de todas, aunque el filtro esté puesto)
 export default function ResumenCategorias() {
-  const { data: dominios } = useDominios('');
+  const { data } = useDominios('');
 
   // Mientras carga o si falla no enseña nada: de eso ya avisa el listado
-  if (!dominios) return null;
+  if (!data) return null;
+  // Solo cuenta los registros válidos (los corruptos ya los descartó la capa de servicios)
+  const { dominios } = data;
 
   return (
     <ul className="resumen" aria-label="Dominios bloqueados por categoría">

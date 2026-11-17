@@ -55,3 +55,14 @@ export const esquemaDominio = z
     error: 'Un dominio de malware se bloquea siempre con sus subdominios',
     path: ['alcance'],
   });
+
+// Esquema de cada dominio que llega del API: comprueba que el servidor manda lo que la app espera antes de pintarlo
+export const esquemaRespuestaDominio = z.object({
+  id: z.number(),
+  dominio: z.string(),
+  categoria: z.string().refine((valor) => CATEGORIAS.includes(valor)),
+  alcance: z.string().refine((valor) => VALORES_ALCANCE.includes(valor)),
+  motivo: z.string(),
+  fechaDeteccion: z.string(),
+  fechaAlta: z.string(),
+});

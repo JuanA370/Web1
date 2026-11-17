@@ -10,9 +10,11 @@ function textoHosts(dominios) {
 
 // Muestra la lista completa en formato hosts para copiarla y bloquear de verdad esos dominios en el equipo
 export default function ExportarHosts() {
-  const { data: dominios } = useDominios('');
+  const { data } = useDominios('');
 
-  if (!dominios || dominios.length === 0) return null;
+  if (!data || data.dominios.length === 0) return null;
+  // Solo se exportan los registros válidos: un dato corrupto nunca llega al archivo hosts
+  const { dominios } = data;
 
   return (
     <section className="zona exportar" aria-labelledby="titulo-exportar">
