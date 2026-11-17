@@ -1,0 +1,20 @@
+.exportar {
+  margin-top: 20px;
+  display: grid;
+  gap: 8px;
+}
+
+.exportar .ayuda {
+  margin: 0;
+  color: var(--texto-suave);
+}
+
+.exportar label {
+  font-weight: 600;
+}
+
+.exportar textarea {
+  font-family: ui-monospace, monospace;
+  font-size: 0.9rem;
+  resize: vertical;
+}

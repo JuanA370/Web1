@@ -3,6 +3,7 @@ import FormularioDominio from './components/FormularioDominio.jsx';
 import ResumenCategorias from './components/ResumenCategorias.jsx';
 import FiltroCategoria from './components/FiltroCategoria.jsx';
 import ListaDominios from './components/ListaDominios.jsx';
+import ExportarHosts from './components/ExportarHosts.jsx';
 import './App.css';
 
 // Componente raíz: coloca las dos zonas de la página y guarda la categoría elegida en el filtro
@@ -32,6 +33,8 @@ export default function App() {
           <ListaDominios categoria={categoria} />
         </section>
       </div>
+
+      <ExportarHosts />
     </main>
   );
 }
