@@ -39,22 +39,17 @@ que se ve que la lista se actualiza al registrar, y solo hace falta en
 desarrollo.
 
 ## Uso de IA
-Usé Claude Code para el código. En cada paso
-escribía el código, lo probaba y me lo explicaba línea a línea antes de
-seguir, con un commit y un push por cada parte.
+Usé Claude Code para el código. En cada paso escribía el código, lo
+probaba y me lo explicaba línea a línea antes de seguir. Las decisiones
+fueron mías: el tema de la app, usar json-server y el orden de trabajo.
 
-Las decisiones de qué hacer fueron mías: el tema de la app, usar
-json-server en vez de JSONPlaceholder (Claude me dio las opciones con
-sus pros y sus contras) y el orden de trabajo.
+Prompt real: "No, vas a ir paso a paso y yo voy a tener que ir
+entendiendo que has hecho en cada paso poco a poco y vas a ir haciendo
+push de cada cosa".
 
-Cómo se verificó: npm run lint y npm run build en cada paso, el esquema
-de Zod probado aparte con casos válidos y no válidos, y pruebas en el
-navegador de cada parte (formulario vacío, cada regla, alta, dominio
-repetido, filtro, quitar, API parado y registro corrupto). Yo revisé
-cada commit con su explicación línea a línea y pregunté lo que no
-entendía (qué hace refine por dentro, quién pone el foco en el primer
-error, por qué al borrar se pasa solo el id y por qué no pasamos el
-objeto entero).
+Cómo se verificó: npm run lint, npm run build y pruebas en el
+navegador en cada paso. Yo revisé cada commit con su explicación y
+pregunté lo que no entendía.
 
 No escribí código a mano.
 
